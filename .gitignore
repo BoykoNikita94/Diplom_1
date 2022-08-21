@@ -1,4 +1,5 @@
-target/
+target/*
+!target/site/
 .settings/
 !org.jacoco.core/.settings/
 !org.jacoco.core.test/.settings/
