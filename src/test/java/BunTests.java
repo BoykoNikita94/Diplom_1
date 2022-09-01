@@ -35,7 +35,6 @@ public class BunTests {
     @Test
     public void checkGetPrice() {
         Bun bun = new Bun(name, price);
-        System.out.println(bun.getPrice());
         Assert.assertEquals(price, bun.getPrice(), 0);
     }
 }

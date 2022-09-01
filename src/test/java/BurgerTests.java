@@ -25,7 +25,6 @@ public class BurgerTests {
 
     @Test
     public void SetBuns() {
-        Bun bun = new Bun("булка", 3.15F);
         Burger burger = new Burger();
         burger.setBuns(bun);
         Assert.assertEquals(bun, burger.bun);
@@ -34,17 +33,15 @@ public class BurgerTests {
     @Test
     public void AddIngredient() {
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "совс", 9.23F);
-        burger.addIngredient(ingredient);
-        Assert.assertEquals(ingredient, burger.ingredients.get(0));
+        burger.addIngredient(ingredient1);
+        Assert.assertEquals(ingredient1, burger.ingredients.get(0));
         Assert.assertEquals(1, burger.ingredients.size());
     }
 
     @Test
     public void removeIngredient() {
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "совас", 9.23F);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient1);
         burger.removeIngredient(0);
         Assert.assertEquals(0, burger.ingredients.size());
     }
@@ -52,15 +49,11 @@ public class BurgerTests {
     @Test
     public void moveIngredient() {
         Burger burger = new Burger();
-        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "sauce", 1.11F);
-        Ingredient ingredient2 = new Ingredient(IngredientType.FILLING, "SOWSE", 315F);
-        Ingredient ingredient3 = new Ingredient(IngredientType.SAUCE, "myaso", 23F);
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
-        burger.addIngredient(ingredient3);
-        burger.moveIngredient(2, 1);
-        Assert.assertEquals(ingredient3, burger.ingredients.get(1));
-        Assert.assertEquals(3, burger.ingredients.size());
+        burger.moveIngredient(1, 0);
+        Assert.assertEquals(ingredient2, burger.ingredients.get(0));
+        Assert.assertEquals(2, burger.ingredients.size());
     }
 
     @Test
